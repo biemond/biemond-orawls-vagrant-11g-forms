@@ -1,0 +1,51 @@
+---
+
+logoutput:                &logoutput                true
+orawls::weblogic::log_output:   *logoutput
+
+wls_os_user:              &wls_os_user              "oracle"
+wls_weblogic_user:        &wls_weblogic_user        "weblogic"
+wls_weblogic_home_dir:    &wls_weblogic_home_dir    "/opt/oracle/middleware11g/wlserver_10.3"
+wls_middleware_home_dir:  &wls_middleware_home_dir  "/opt/oracle/middleware11g"
+
+
+# FMW installation on top of WebLogic 10.3.6
+fmw_installations:
+  'webTierPS8':
+    version:                 1111
+    fmw_product:             "web"
+    fmw_file1:               "ofm_webtier_linux_11.1.1.9.0_64_disk1_1of1.zip"
+    log_output:              true
+    remote_file:             false
+  'forms11112':
+    version:                 11112
+    fmw_product:             "forms"
+    fmw_file1:               "V18772-01_1of4.zip"
+    fmw_file2:               "V18772-01_2of4.zip"
+    fmw_file3:               "V18772-01_3of4.zip"
+    fmw_file4:               "V18772-01_4of4.zip"
+    log_output:              true
+    remote_file:             false
+  # 'forms1112':
+  #   version:                 1112
+  #   fmw_product:             "forms"
+  #   fmw_file1:               "ofm_frmrpts_linux_11.1.2.2.0_64_disk1_1of2.zip"
+  #   fmw_file2:               "ofm_frmrpts_linux_11.1.2.2.0_64_disk1_2of2.zip"
+  #   log_output:              true
+  #   remote_file:             false
+
+forms_11g_patches:
+  'forms11117':
+    version:                 11117
+    fmw_file1:               "p16471668_111170_Linux-x86-64.zip"
+    log_output:              true
+    remote_file:             false
+
+opatch_instances:
+  # '17584181':
+  #    ensure:                   "present"
+  #    oracle_product_home_dir:  "/opt/oracle/middleware11g/Oracle_SOA1"
+  #    patch_id:                 "17584181"
+  #    patch_file:               "p17584181_111170_Generic.zip"
+  #    remote_file:              false
+
